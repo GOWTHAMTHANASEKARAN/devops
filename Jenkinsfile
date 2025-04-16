@@ -1,17 +1,19 @@
-pipeline{
+pipeline
+{
     agent {
-        label 'java_slave_node
+        label 'slave-node'
     }
     tools
     {
         maven 'maven'
     }
-
-    stages{
-        stage("print server info"){
+    stages
+    {
+        stage("build")
+        {
             steps{
                 sh 'mvn clean package'
             }
-        }
-    }
+        }
+    }
 }
